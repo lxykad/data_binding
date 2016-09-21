@@ -13,18 +13,19 @@ import com.lxy.bind.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity {
 
     private User mUser;
+    private ViewDataBinding mBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main);
 
-        ViewDataBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
         mUser = new User("lxy", "22");
 
-        binding.setVariable(BR.User, mUser);
-        binding.setVariable(BR.presenter, new Persenter());
+        mBinding.setVariable(BR.User, mUser);
+        mBinding.setVariable(BR.presenter, new Persenter());
 
     }
 
